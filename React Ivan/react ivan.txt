@@ -1,0 +1,27 @@
+Créer un nouveau projet
+npx create-react-app ivan-app
+
+ouvrir le dossier "ivan-app"
+cd ivan-app
+
+créer le dossier "components" dans le dossier "src"
+
+Créer les fichiers suivants, qui contiendront chacun un composant de l'interface du chatbot dans le dossier "components"
+- Chatbot.js: structure de base du chatbot
+- MessageList.js: composant pour afficher la liste de message
+- Message.js: affiche les message un à un
+- ChatInput.js: composant pour l'entrée de l'utilisateurv
+
+
+
+Comment avons nous struturé le texte de la réponse envoyée par le chatbot ? 
+
+- remplacer "/n" par la balise <br>
+- remplacer "**" par la balise <strong></strong>
+
+>>> Dans le endpoint "/chatbot"
+ try:
+        chatbot_response = response['outputs'][0]['outputs'][0]['results']['message']['data']['text']
+        chatbot_response = chatbot_response.replace("\n", "<br>")  # Exemple pour des retours à la ligne HTML
+        chatbot_response = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', chatbot_response)
+
